@@ -5,12 +5,12 @@ import (
 	"log"
 	"strings"
 
-	"github.com/gdamore/mangos"
-	"github.com/gdamore/mangos/protocol/respondent"
-	"github.com/gdamore/mangos/protocol/sub"
+	"go.nanomsg.org/mangos/v3"
+	"go.nanomsg.org/mangos/v3/protocol/respondent"
+	"go.nanomsg.org/mangos/v3/protocol/sub"
+	"go.nanomsg.org/mangos/v3/transport/ipc"
+	"go.nanomsg.org/mangos/v3/transport/tcp"
 
-	"github.com/gdamore/mangos/transport/ipc"
-	"github.com/gdamore/mangos/transport/tcp"
 	"golang.org/x/net/context"
 )
 

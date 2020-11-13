@@ -5,13 +5,13 @@ import (
 	"strings"
 	"time"
 
-	"golang.org/x/net/context"
+	"go.nanomsg.org/mangos/v3"
+	"go.nanomsg.org/mangos/v3/protocol/pub"
+	"go.nanomsg.org/mangos/v3/protocol/surveyor"
+	"go.nanomsg.org/mangos/v3/transport/ipc"
+	"go.nanomsg.org/mangos/v3/transport/tcp"
 
-	"github.com/gdamore/mangos"
-	"github.com/gdamore/mangos/protocol/pub"
-	"github.com/gdamore/mangos/protocol/surveyor"
-	"github.com/gdamore/mangos/transport/ipc"
-	"github.com/gdamore/mangos/transport/tcp"
+	"golang.org/x/net/context"
 )
 
 type Options struct {
