@@ -4,6 +4,7 @@ import (
 	"time"
 
 	"github.com/golang/groupcache"
+	"github.com/k0kubun/pp"
 	"github.com/spf13/cobra"
 
 	"github.com/dahernan/gopherdiscovery/pkg/discovery"
@@ -32,6 +33,8 @@ var UpdateCmd = &cobra.Command{
 		// on the server
 		server, err := discovery.Server(updateUrlServer, updateUrlPubSub, opts)
 		checkErr(err)
+
+		pp.Println("server:", server)
 
 		// any of the peers
 		pool := groupcache.NewHTTPPool(me)

@@ -4,6 +4,7 @@ import (
 	"context"
 	"time"
 
+	"github.com/k0kubun/pp"
 	"github.com/spf13/cobra"
 
 	"github.com/dahernan/gopherdiscovery/pkg/discovery"
@@ -30,6 +31,8 @@ var SuscribeCmd = &cobra.Command{
 
 		server, err := discovery.Server(suscribeUrlServ, suscribeUrlPubSub, defaultOpts)
 		checkErr(err)
+
+		pp.Println("server:", server)
 
 		ctx, cancel := context.WithCancel(context.Background())
 		sub, err := discovery.NewSubscriber(ctx, suscribeUrlPubSub)

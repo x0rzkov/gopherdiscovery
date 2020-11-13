@@ -8,8 +8,9 @@ import (
 	"go.nanomsg.org/mangos/v3"
 	"go.nanomsg.org/mangos/v3/protocol/pub"
 	"go.nanomsg.org/mangos/v3/protocol/surveyor"
-	"go.nanomsg.org/mangos/v3/transport/ipc"
-	"go.nanomsg.org/mangos/v3/transport/tcp"
+	_ "go.nanomsg.org/mangos/v3/transport/all"
+	// "go.nanomsg.org/mangos/v3/transport/ipc"
+	// "go.nanomsg.org/mangos/v3/transport/tcp"
 
 	"golang.org/x/net/context"
 )
@@ -74,8 +75,8 @@ func Server(urlServer string, urlPubSub string, opt Options) (*DiscoveryServer, 
 		return nil, err
 	}
 
-	sock.AddTransport(ipc.NewTransport())
-	sock.AddTransport(tcp.NewTransport())
+	//sock.AddTransport(ipc.NewTransport())
+	//sock.AddTransport(tcp.NewTransport())
 
 	err = sock.Listen(urlServer)
 	if err != nil {
@@ -171,8 +172,8 @@ func NewPublisher(ctx context.Context, url string) (*Publisher, error) {
 	if err != nil {
 		return nil, err
 	}
-	sock.AddTransport(ipc.NewTransport())
-	sock.AddTransport(tcp.NewTransport())
+	// sock.AddTransport(ipc.NewTransport())
+	// sock.AddTransport(tcp.NewTransport())
 
 	err = sock.Listen(url)
 	if err != nil {

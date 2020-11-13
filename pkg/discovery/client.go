@@ -1,6 +1,7 @@
 package discovery
 
 import (
+	"context"
 	"errors"
 	"log"
 	"strings"
@@ -8,10 +9,9 @@ import (
 	"go.nanomsg.org/mangos/v3"
 	"go.nanomsg.org/mangos/v3/protocol/respondent"
 	"go.nanomsg.org/mangos/v3/protocol/sub"
-	"go.nanomsg.org/mangos/v3/transport/ipc"
-	"go.nanomsg.org/mangos/v3/transport/tcp"
-
-	"golang.org/x/net/context"
+	_ "go.nanomsg.org/mangos/v3/transport/all"
+	// "go.nanomsg.org/mangos/v3/transport/ipc"
+	// "go.nanomsg.org/mangos/v3/transport/tcp"
 )
 
 type DiscoveryClient struct {
@@ -68,8 +68,8 @@ func ClientWithSub(urlServer string, urlPubSub string, service string) (*Discove
 		return nil, err
 	}
 
-	sock.AddTransport(ipc.NewTransport())
-	sock.AddTransport(tcp.NewTransport())
+	// sock.AddTransport(ipc.NewTransport())
+	// sock.AddTransport(tcp.NewTransport())
 	err = sock.Dial(urlServer)
 	if err != nil {
 		return nil, err
@@ -129,8 +129,8 @@ func NewSubscriber(ctx context.Context, url string) (*Subscriber, error) {
 	if err != nil {
 		return nil, err
 	}
-	sock.AddTransport(ipc.NewTransport())
-	sock.AddTransport(tcp.NewTransport())
+	// sock.AddTransport(ipc.NewTransport())
+	// sock.AddTransport(tcp.NewTransport())
 
 	err = sock.Dial(url)
 	if err != nil {
