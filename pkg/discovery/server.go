@@ -1,4 +1,4 @@
-package gopherdiscovery
+package discovery
 
 import (
 	"log"

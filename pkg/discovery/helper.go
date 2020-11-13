@@ -1,4 +1,4 @@
-package gopherdiscovery
+package discovery
 
 // Set is a modification of https://github.com/deckarep/golang-set
 // The MIT License (MIT)
